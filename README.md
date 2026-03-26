@@ -8,9 +8,9 @@
 ### ⚠️ UNOFFICIAL COMMUNITY PROJECT
 **This is an unofficial, community-driven open-source project.**
 - It is **NOT** affiliated with, endorsed by, sponsored by, or supported by Anthropic.
-- It does **NOT** provide Claude access; you must have your own Claude Pro subscription and the Claude CLI installed.
+- It does **NOT** provide Claude access; you must have your own Claude account/subscription and the Claude CLI installed.
 - It does **NOT** bypass, circumvent, or defeat usage limits.
-- It is a local workflow wrapper designed to help you use your existing Claude Pro subscription more efficiently.
+- It is a local workflow wrapper designed to help you use your existing Claude CLI workflow more efficiently.
 - See [DISCLAIMER.md](./DISCLAIMER.md) and [TRADEMARK_NOTICE.md](./TRADEMARK_NOTICE.md) for full details.
 
 ---

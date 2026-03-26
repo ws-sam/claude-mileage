@@ -9,4 +9,4 @@ Users may find themselves hitting message limits before completing their tasks, 
 - **Output Repetition:** Requesting full file rewrites for minor changes.
 
 ### Our Focus
-`claude-mileage` provides tools to reduce waste within your existing Claude CLI workflow. By focusing on compact context and local memory, you can more effectively complete complex tasks within your current message limits. Our goal is to make every message as useful as possible.
+`claude-mileage` provides tools to reduce waste within your existing Claude CLI workflow. By focusing on compact context and local memory, you can more effectively complete complex tasks within your existing message limits. Our goal is to make every interaction as high-signal as possible.

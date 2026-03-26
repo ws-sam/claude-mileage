@@ -2,7 +2,8 @@
 
 To maintain a tight scope and stay true to our philosophy, `claude-mileage` explicitly avoids the following:
 
-- **Rate Limit Evasion:** We will never implement features that attempt to bypass, trick, or "hack" Anthropic’s usage limits.
+- **Rate Limit Evasion:** We do not implement features intended to bypass, evade, or alter Anthropic’s usage limits.
+
 - **Unlimited Usage:** This tool does not provide free or unlimited access to Claude.
 - **SaaS/Hosted Platform:** There will be no `claude-mileage.com`. This is a local-only CLI tool.
 - **Account/Proxy Reselling:** We do not and will never sell access to Claude or proxy Anthropic accounts.

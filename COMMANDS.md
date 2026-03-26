@@ -2,8 +2,8 @@
 
 ### `ask`
 **Purpose:** The primary interaction.  
-**How it reduces waste:** Automatically injects the local `CONTEXT.md` and `MEMORY.md` while keeping the thread history "thin."  
-**Refuses:** To send more than 3 large files without a `--force` flag.
+**How it reduces waste:** Injects local `.mileage/` memory and prunes context automatically.  
+**Note:** Warns when a request includes more context than is likely necessary, and may require explicit confirmation.
 
 ### `diff`
 **Purpose:** Focused coding.  
