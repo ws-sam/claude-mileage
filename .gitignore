@@ -4,3 +4,4 @@ dist/
 .mileage/
 *.log
 .DS_Store
+*:Zone.Identifier

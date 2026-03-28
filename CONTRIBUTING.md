@@ -1,20 +1,42 @@
 # Contributing to claude-mileage
 
-First off, thank you for caring about better AI mileage! This is a community project built for people who want to stay disciplined and efficient.
+`claude-mileage` is a small tool with a narrow scope. Contributions are welcome when they improve the existing preparation loop without expanding the product.
 
-### How to Contribute
-1. **Discuss:** Open an issue to discuss a workflow improvement or a new "mileage" strategy.
-2. **Docs:** We value documentation just as much as code. Help us refine the `SPEC.md` or `CONTEXT_RULES.md`.
-3. **Code:** 
-   - Keep it simple.
-   - No heavy dependencies.
-   - Focus on the "wrapper" logic, not reinventing the Claude CLI.
-4. **Share your Workflow:** Have a trick for getting more out of Claude Pro? Add it to our `docs/` folder.
+## Good Contribution Targets
 
-### Style & Tone
-- We are **Practical**. No hype.
-- We are **Honest**. We don't promise magic.
-- We are **Surgical**. We prefer small, targeted changes over large refactors.
+- prompt composition clarity
+- preview and payload transparency
+- local state handling
+- error handling
+- focused tests
+- docs that make the current behavior easier to understand
 
-### Decision Making
-The maintainers (ws-sam) will prioritize features that **reduce waste**. If a feature adds bloat, increases hidden token usage, or complicates the local-first model, it will likely be rejected.
+## Avoid
+
+- broad product expansion
+- hidden automation
+- cloud or service features
+- replacing the Claude CLI
+- speculative abstractions
+- heavy dependencies
+
+## Working Style
+
+- Keep changes small and direct.
+- Preserve the current command surface unless there is a clear bug.
+- Prefer deterministic behavior over clever behavior.
+- Update docs when behavior or expectations change.
+
+## Local Checks
+
+```bash
+npm install
+npm test
+```
+
+## Tone
+
+- Direct
+- Technical
+- Restrained
+- Honest

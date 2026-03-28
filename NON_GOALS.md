@@ -1,11 +1,9 @@
 # Non-Goals
 
-To maintain a tight scope and stay true to our philosophy, `claude-mileage` explicitly avoids the following:
+`claude-mileage` is a local preparation layer. It does not pursue the following:
 
-- **Rate Limit Evasion:** We do not implement features intended to bypass, evade, or alter Anthropic’s usage limits.
-- **Unlimited Usage:** This tool does not provide free or unlimited access to Claude.
-- **SaaS/Hosted Platform:** This is a local-only CLI tool. No account creation, no cloud proxies.
-- **Account/Proxy Reselling:** We do not sell Claude usage or proxy Anthropic subscriptions.
-- **Platform Circumvention:** We are not a workaround for platform controls or billing systems.
-- **Replacing Anthropic Services:** We are not a replacement for any Anthropic plan or service.
-- **Jailbreaking:** We do not provide prompts or tools designed to circumvent safety filters or model alignment.
+- **Bypassing limits**: It does not bypass, evade, or alter usage limits or rate limits.
+- **Providing access**: It does not provide Claude access; the user must already have the official Claude CLI configured locally.
+- **Cloud infrastructure**: It does not provide proxies, accounts, hosted services, or remote orchestration.
+- **Circumventing controls**: It does not attempt to defeat platform controls, billing systems, or safety systems.
+- **Replacing Claude**: It is not a replacement for the Claude CLI or any Anthropic service.

@@ -1,59 +1,82 @@
-# claude-mileage 👺
+# claude-mileage
 
-<!-- BANNER_START -->
-<!-- [Placeholder: Future project banner or terminal-style logo] -->
-<!-- BANNER_END -->
+![claude-mileage banner](public/token-tengu-banner.png)
 
-> **Better mileage for Claude CLI workflows.**  
-> An unofficial local preparation layer focused on reducing context waste and improving task discipline.
+`claude-mileage` is a local preparation layer for the Claude CLI. It improves workflow discipline by reducing context waste and grounding requests in specific local memory. 👺
 
-[![Status: Documentation-First](https://img.shields.io/badge/Status-Documentation--First-blue)](#roadmap)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+## Concept
 
----
+When using AI through a CLI, context threads can quickly become noisy and unfocused. `claude-mileage` solves this by preparing your tasks locally. It ensures only high-signal context is sent to the model, using one-shot execution for every task.
 
-### ⚠️ UNOFFICIAL COMMUNITY PROJECT
-**This is an unofficial, community-driven open-source project.**
-- Not affiliated with, endorsed by, or supported by Anthropic.
-- Requires your own Claude account/subscription and the official Claude CLI.
-- Does not bypass, circumvent, or defeat usage limits.
-- See [DISCLAIMER.md](./DISCLAIMER.md) for full details.
+- **Local Memory**: Project state stays in your repository, not in cloud threads.
+- **One-Shot**: Every run is a fresh `claude -p` call to avoid session drift.
+- **Human-Driven**: You manually pin the files relevant to your current task.
+- **Traceable**: A local `history.log` tracks attempted tasks and their outcomes.
 
----
+### Workflow
 
-## 👺 The Token-Tengu Identity
-`claude-mileage` is guarded by the **token-tengu 👺**—a subtle, disciplined identity for your terminal. It represents a shift from "brute-force context" to "surgical precision." It is built for those who want to get more useful work out of the workflow they already use.
-
-## 🛠️ How it Works
-`claude-mileage` acts as a local pre-processor. It prepares your prompts, selects the right context, and compacts data **before** calling the official binary.
-
-### The Pipeline
 ```text
-  [ PROMPT / DIFF / FILES ]
-             ↓
-    ( Context Selection )  ←— Filter out boilerplate/unrelated noise
-             ↓
-    ( Context Compaction ) ←— Generate local summaries/interfaces
-             ↓
-    [   CLAUDE CLI BIN   ] ←— Official execution via your account
-             ↓
-  [ RESULT + MEMORY + CACHE ]
+User Input → Local Preparation → Claude CLI → Result → Local Memory
 ```
 
-## Who it is For
-- **Disciplined Systems Thinkers:** Users who want local, inspectable memory, tight context control, and repeatable workflows.
-- **High-Velocity Prompting:** Users who just want "smarter defaults" so the CLI handles context selection and output formatting automatically.
+## Install
 
-## Core Features
-- **Stateless-by-Default:** Clears cloud thread history frequently; moves project state to local files.
-- **Local Memory:** Maintains a project brief and history log in `.mileage/`.
-- **Diff-First Coding:** Forces targeted patches instead of expensive full-file rewrites.
-- **Context Preview:** See your token cost and selected snippets before you hit send.
+### Requirements
 
-## Status & Implementation
-This project is currently in its **Documentation-First** phase. We are defining the system architecture and command models before committing to the first implementation scaffold.
+- **Node.js**: version 20 or higher.
+- **Claude CLI**: the [official Anthropic Claude CLI](https://docs.anthropic.com/en/docs/agents-and-tools/claude-cli) must be installed and authenticated.
 
-[View the Roadmap](./ROADMAP.md) | [Read the Creator's Note](./CREATORS_NOTE.md)
+### Installation
 
----
-**Trademark Notice:** "Claude" and related marks are trademarks of Anthropic PBC. Used nominatively for compatibility description.
+```bash
+# Install dependencies
+npm install
+
+# Build the project
+npm run build
+
+# (Optional) Link for global access
+npm link
+```
+
+## Commands
+
+- **init**: Set up the `.mileage/` workspace.
+- **ask <request>**: Send a grounded task using project memory and pinned files.
+- **diff <request>**: Send a task focused on the current `git diff` (staged or HEAD).
+- **context [pin|unpin] [path]**: Manage pinned files or preview the next payload.
+- **memory**: View or edit the local project brief and history.
+
+## Basic Usage
+
+1. **Initialize** your project:
+   ```bash
+   claude-mileage init
+   ```
+2. **Pin** the files you are currently working on:
+   ```bash
+   claude-mileage context pin src/index.ts
+   ```
+3. **Ask** a specific question or request a change:
+   ```bash
+   claude-mileage ask "Refactor the command registration to be more modular"
+   ```
+4. **Review** your current changes:
+   ```bash
+   claude-mileage diff "Explain these changes and check for regressions"
+   ```
+
+## Project Identity
+
+- **What it is**: A tool for improving context discipline and workflow efficiency.
+- **What it is not**: A proxy, an API bypass, a multi-agent orchestrator, or a replacement for the Claude CLI.
+
+## Contributing
+
+`claude-mileage` is a focused v0 project. We welcome contributions that improve the existing preparation loop, payload transparency, or reliability.
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) and [ROADMAP.md](ROADMAP.md) for details.
+
+## License
+
+MIT

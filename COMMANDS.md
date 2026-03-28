@@ -1,39 +1,18 @@
 # Command Reference
 
-`claude-mileage` (token-tengu 👺) uses a minimal command model designed to be invisible for basic use but powerful for advanced context control.
+`claude-mileage` provides a minimal set of commands for context-focused workflows.
 
-### 🧩 Interaction Commands
+### init
+Initializes the `.mileage/` directory in the current workspace. This directory stores the local memory and configuration used to ground requests.
 
-#### `ask <prompt> [files...]`
-The primary entry point.
-- **Mileage Action:** Injects local project memory, prunes provided files, and enforces "Diff-First" output for code.
-- **Waste Reduction:** Warns if the context size exceeds the likely requirement for the task.
+### ask <request>
+Prepare and send a request to the Claude CLI. This command automatically includes the local project brief and relevant history to provide orientation without broad, unfocused context.
 
-#### `plan <prompt>`
-Strategy before execution.
-- **Mileage Action:** Forces Claude into a low-token "Planning Mode."
-- **Waste Reduction:** Prevents the "coding-by-accident" loop that burns through message limits on dead-end paths.
+### diff <request>
+Similar to `ask`, but prioritizes the current `git diff` (staged or HEAD) as primary context. Ideal for reviewing or iterating on recent code changes.
 
-### 🧠 Memory & Context Commands
+### context [pin|unpin] [path]
+Manage which files are pinned in your local memory. Pinned files are included in every request until unpinned. Running the command without arguments provides a summary of pinned files and a dry-run preview of the next payload.
 
-#### `memory [init|edit|view]`
-Manage the local `.mileage/` directory.
-- **Mileage Action:** Maintains the `brief.md` (project overview) and `history.log` (last actions).
-- **Waste Reduction:** Replaces long cloud thread history with targeted local summaries.
-
-#### `compact <target>`
-Manual context compaction.
-- **Mileage Action:** Generates a local `.summary` or `.interface` for a file or folder.
-- **Waste Reduction:** Allows Claude to understand a library or module without reading every line of source.
-
-#### `context [pin|unpin|clear]`
-Session context management.
-- **Mileage Action:** Persists specific files in the "pre-processor" window for the next few messages.
-- **Waste Reduction:** Avoids re-pasting the same core files in a single session.
-
-### 📊 Utility Commands
-
-#### `budget`
-Usage awareness.
-- **Action:** Analyzes local logs to estimate daily/weekly token usage.
-- **Waste Reduction:** Provides the visibility needed to adjust discipline before reaching limits.
+### memory
+Directly inspect the local project state, including the `brief.md` project overview and `history.log` request record.
